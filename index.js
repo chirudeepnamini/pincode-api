@@ -39,5 +39,3 @@ app.get("/", async (req, res) => {
 app.listen(process.env.PORT || 3000, async function () {
   await db_conn();
 });
-// a1gyGukejuNEq98K;
-// mongodb+srv://chirudeep:a1gyGukejuNEq98K@cluster0.mdo5w.mongodb.net
