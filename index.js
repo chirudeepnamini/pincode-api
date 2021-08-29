@@ -1,6 +1,6 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
-const client = new MongoClient(process.env.PORT);
+const client = new MongoClient(process.env.URI);
 var database, coll;
 const statecodes_obj = require("./statecodes");
 require("dotenv").config();
