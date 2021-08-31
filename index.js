@@ -12,7 +12,8 @@ async function db_conn() {
 }
 
 const app = express();
-app.use(express.json());
+app.use(express.json());'
+app.get("/",(req,res)=>{res.json(info:"working");})
 app.get("/", async (req, res) => {
   var queryobj = {};
   if (req.query.stateid) {
