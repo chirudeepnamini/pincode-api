@@ -30,7 +30,16 @@ app.get("/", async (req, res) => {
   if (req.query.DivisionName) {
     queryobj["DivisionName"] = req.query.divisionName;
   }
-  console.log(queryobj);
+  if(queryobj=={})
+  {
+    try {
+    var result_cursor = await coll.find();
+    result_cursor = await result_cursor.toArray();
+  } catch (err) {
+    console.log("in errror", err);
+  }
+  res.json(result_cursor);
+  }
   try {
     var result_cursor = await coll.find(queryobj);
     result_cursor = await result_cursor.toArray();
