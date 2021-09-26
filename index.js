@@ -15,8 +15,11 @@ const app = express();
 app.use(express.json());
 app.get("/", async (req, res) => {
   var queryobj = {};
-  if (req.query.stateid) {
+  if (req.query.statecode) {
     queryobj["StateName"] = statecodes_obj.statecodes[req.query.statecode];
+    console.log(req.query.statecode);
+    console.log(statecodes_obj.statecodes[req.query.statecode])
+    
   }
   if (req.query.District) {
     queryobj["District"] = req.query.district;
