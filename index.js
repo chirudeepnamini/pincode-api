@@ -12,21 +12,20 @@ async function db_conn() {
 }
 
 const app = express();
-app.use(express.json());'
-app.get("/",(req,res)=>{res.json(info:"working");})
+app.use(express.json());
 app.get("/", async (req, res) => {
   var queryobj = {};
   if (req.query.stateid) {
-    queryobj["StateName"] = statecodes_obj.statecodes[req.query.stateid];
+    queryobj["StateName"] = statecodes_obj.statecodes[req.query.statecode];
   }
   if (req.query.District) {
-    queryobj["District"] = req.query.District;
+    queryobj["District"] = req.query.district;
   }
   if (req.query.Pincode) {
-    queryobj["Pincode"] = req.query.Pincode;
+    queryobj["Pincode"] = req.query.pincode;
   }
   if (req.query.DivisionName) {
-    queryobj["DivisionName"] = req.query.DivisionName;
+    queryobj["DivisionName"] = req.query.divisionName;
   }
   console.log(queryobj);
   try {
