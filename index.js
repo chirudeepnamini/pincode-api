@@ -36,6 +36,5 @@ app.get("/", async (req, res) => {
   }
   res.json(result_cursor);
 });
-app.listen(process.env.PORT || 3000, async function () {
-  await db_conn();
-});
+await db_conn();
+app.listen(process.env.PORT || 3000);
