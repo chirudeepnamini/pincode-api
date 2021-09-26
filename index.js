@@ -41,7 +41,6 @@ app.get("/", async (req, res) => {
   }
   res.json(result_cursor);
 });
-await db_conn();
 app.listen(process.env.PORT || 3000).then(()=>{
 await client.connect();
   database = client.db("pincode-db");
