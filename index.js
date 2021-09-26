@@ -4,13 +4,6 @@ const client = new MongoClient(process.env.URI);
 var database, coll;
 const statecodes_obj = require("./statecodes");
 require("dotenv").config();
-async function db_conn() {
-  await client.connect();
-  database = client.db("pincode-db");
-  coll = database.collection("pincode-coll");
-  console.log("done");
-}
-
 const app = express();
 app.use(express.json());
 app.get("/", async (req, res) => {
@@ -49,4 +42,9 @@ app.get("/", async (req, res) => {
   res.json(result_cursor);
 });
 await db_conn();
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000).then(()=>{
+await client.connect();
+  database = client.db("pincode-db");
+  coll = database.collection("pincode-coll");
+  console.log("done");
+});
